@@ -10,6 +10,8 @@ const Homepage = ({ name, dob }) => {
     const navigate=useNavigate();
  
     const [marklist, setMarklist] = useState([])
+ 
+
     const { id } = useParams()
 
     useEffect(() => {
@@ -21,6 +23,12 @@ const Homepage = ({ name, dob }) => {
         fetchData();
 
     }, [])
+
+    const student = marklist.find((i) => i.id== id)
+    
+
+    
+    
 
     function setGrade(mark){
         if (mark>=90){
@@ -44,22 +52,41 @@ const Homepage = ({ name, dob }) => {
     }
  function setTotal(marks){
 
+const totalMarks=(marks.Maths+marks.Malayalam+marks.Hindi+marks.English)
+
 if(marks.English <60 ||marks.Hindi<60 ||marks.Maths<60 || marks.Malayalam <60){
   return "Failed"
 
 }
 else{
-    return Math.round(((student.marks.Maths+student.marks.Malayalam+student.marks.Hindi+student.marks.English)/400)*100)
+    // return Math.round(((student.marks.Maths+student.marks.Malayalam+student.marks.Hindi+student.marks.English)/400)*100)
+    return (totalMarks)
 }
 
 
  }
 
+ function setPercent(marks){
+
+    const totalPercent=Math.round(((student.marks.Maths+student.marks.Malayalam+student.marks.Hindi+student.marks.English)/400)*100)
+    
+    if(marks.English <60 ||marks.Hindi<60 ||marks.Maths<60 || marks.Malayalam <60){
+      return "Failed"
+    
+    }
+    else{
+        // return Math.round(((student.marks.Maths+student.marks.Malayalam+student.marks.Hindi+student.marks.English)/400)*100)
+        return (totalPercent)
+    }
+    
+    
+     }
+    
+
    
   
 
-    const student = marklist.find((i) => i.id== id)
-
+   
     return (
         <div className="container">
 {student? (
@@ -73,9 +100,9 @@ else{
   <ListGroup.Item>Hindi: {student.marks.Hindi} | Grade: {setGrade(student.marks.Hindi)}</ListGroup.Item>
   <ListGroup.Item>Malayalam: {student.marks.Malayalam} | Grade: {setGrade(student.marks.Malayalam)}</ListGroup.Item>
   <ListGroup.Item>Maths: {student.marks.Maths} | Grade: {setGrade(student.marks.Maths)}</ListGroup.Item>
-  <ListGroup.Item><span>Total Marks:</span> {student.marks.Maths+student.marks.Malayalam+student.marks.Hindi+student.marks.English}/400</ListGroup.Item>
+  <ListGroup.Item><span>Total Marks:</span> {setTotal(student.marks)}</ListGroup.Item>
   
-  <ListGroup.Item><span>Total Percentage:</span> {setTotal(student.marks)}</ListGroup.Item>
+  <ListGroup.Item><span>Total Percentage(%):</span> {setPercent(student.marks)}</ListGroup.Item>
 </ListGroup>
 </Card>
 
@@ -83,7 +110,7 @@ else{
 
 ):"null"}
 
-<Link className=" btn btn-outline-dark mt-3 rounded" to="/"><i class="fas fa-home"></i> View Another</Link>
+<Link className=" btn btn-outline-dark mt-3 rounded" to="/"><i className="fas fa-home"></i> View Another</Link>
 
         </div>
     )
