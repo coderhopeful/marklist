@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card{
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   border:2px solid #FFFF3F;
+   
+}
+
+.card span{
+
+    font-weight: bold;
+   
+
+}
+
+.button{
+   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius:30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+

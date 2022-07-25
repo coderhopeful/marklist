@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  margin-top: 150px;
+}
+
+
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #DDDF00;
+   border-radius: 20px;
+  width: 500px;
+padding-top: 20px;
+padding-bottom: 20px;
+box-shadow: 5px 5px 5px #BFD200;
+
+
+}
+
+.login h1{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-bottom: 3px solid black;
+}
+
+
+.login input{
+
+width:300px;
+margin-top: 10px;
+margin-bottom: 10px;
+border-radius: 20px;
+
+}
+
+.login button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius:30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+   
+}
+
+.login button:hover{
+
+transform: scale(1.07);
+}
